@@ -72,7 +72,7 @@ def run_inference_on_image():
         top_k = predictions.argsort()[-5:][::-1]  # Getting top 5 predictions
         f = open(labelsFullPath, 'r')
         lines = f.readlines()
-        labels = [str(w).replace("\n", "") for w in lines]
+        labels = [w.replace("\n", "") for w in lines]
         for node_id in top_k:
             human_string = labels[node_id]
             score = predictions[node_id]
